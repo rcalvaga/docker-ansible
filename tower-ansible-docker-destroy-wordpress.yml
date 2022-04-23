@@ -1,0 +1,13 @@
+---
+- name: Destroy a Wordpress Service Using Docker
+  hosts: docker-nodes
+  tasks:
+  - name: "Destroying wordpress container"
+    docker_container:
+      name: wordpress_app
+      state: absent
+
+  - name: "Destroying database container"
+    docker_container:
+      name: wordpress_db
+      state: absent
