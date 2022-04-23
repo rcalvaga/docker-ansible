@@ -1,0 +1,19 @@
+---
+- name: Launch a Wordpress Service Using Docker
+  hosts: docker-nodes
+  tasks:
+  - name: "Launch database container"
+    docker_container:
+      name: wordpress_db
+      image: mariadb
+      env:
+        MYSQL_ROOT_PASSWORD: "{{ MYSQL_ROOT_PASSWORD }}"
+
+  - name: "Launch wordpress container"
+    docker_container:
+      name: wordpress_app
+      image: wordpress
+      links:
+      - wordpress_db:mysql
+      ports:
+      - "{{ WORDPRESS_PORT }}:80"
