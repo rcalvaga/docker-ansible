@@ -7,6 +7,8 @@
       name: tensorflow
       state: present
       restart: true
+      interactive: yes
+      tty: yes
       image: "{{ docker_image }}"
       network_mode: "{{ docker_network_mode }}"
       devices:
