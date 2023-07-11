@@ -5,7 +5,7 @@
   - name:
     docker_container:
       name: tensorflow
-      state: started
+      state: present
       restart: true
       image: "{{ docker_image }}"
       network_mode: "{{ docker_network_mode }}"
