@@ -8,7 +8,7 @@
       state: started
       restart: true
       image: "{{ docker_image }}"
-      network_mode: host
+      network_mode: "{{ docker_network_mode }}"
       devices:
         - "/dev/kfd"
         - "/dev/dri"
